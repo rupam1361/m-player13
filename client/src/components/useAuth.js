@@ -20,7 +20,8 @@ export default function useAuth(code) {
         window.history.pushState({}, null, "/");
       })
       .catch((err) => {
-        window.location = "/";
+        // window.location = "/";
+        console.log(err);
       });
   }, [code]);
   useEffect(() => {
@@ -35,7 +36,8 @@ export default function useAuth(code) {
           setExpiresIn(data.data.expiresIn);
         })
         .catch((err) => {
-          window.location = "/";
+          // window.location = "/";
+          console.log(err);
         });
     }, (expiresIn - 60) * 1000);
 
