@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const url = "/";
+const url = "http://localhost:5000";
 
 export default function useAuth(code) {
   const [accessToken, setAccessToken] = useState("");
