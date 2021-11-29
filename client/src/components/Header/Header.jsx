@@ -406,9 +406,7 @@ const Header = (
                       setSearchTerm("");
                     }}
                   >
-                    <IconButton>
-                      <ArrowBackIcon fontSize="small" />
-                    </IconButton>
+                    <ArrowBackIcon fontSize="small" />
                   </Search>
                   <StyledInputBaseMobile
                     autoFocus
