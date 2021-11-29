@@ -9,7 +9,7 @@ const router = express.Router();
 router.post("/login", (req, res) => {
   const code = req.body.code;
   const spotifyApi = new SpotifyWebApi({
-    redirectUri: "https://young-reef-94653.herokuapp.com",
+    redirectUri: "https://m-player13.herokuapp.com/",
     clientId: "8c278abff1454cee8821faaa5f55f753",
     clientSecret: "2c08edac92d848558ae56e022e10f155",
   });
@@ -34,7 +34,7 @@ router.post("/login", (req, res) => {
 router.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken;
   const spotifyApi = new SpotifyWebApi({
-    redirectUri: "https://young-reef-94653.herokuapp.com",
+    redirectUri: "https://m-player13.herokuapp.com/",
     clientId: "8c278abff1454cee8821faaa5f55f753",
     clientSecret: "2c08edac92d848558ae56e022e10f155",
     refreshToken,
