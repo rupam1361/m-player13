@@ -100,8 +100,6 @@ const Header = (
     setMobileOpen(!mobileOpen);
   };
 
-  console.log(currentUser);
-
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
