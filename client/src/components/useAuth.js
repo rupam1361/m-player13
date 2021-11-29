@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const url = "https://m-player13.herokuapp.com/";
+const url = "https://m-player13.herokuapp.com";
 
 export default function useAuth(code) {
   const [accessToken, setAccessToken] = useState("");
