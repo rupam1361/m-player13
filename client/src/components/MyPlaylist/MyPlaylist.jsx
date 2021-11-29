@@ -18,7 +18,6 @@ import ClearIcon from "@mui/icons-material/Clear";
 import AddIcon from "@mui/icons-material/Add";
 import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import CloseIcon from "@mui/icons-material/Close";
 import { styled, alpha } from "@mui/material/styles";
 import noImage from "../../assets/no-image1.jpg";
 
@@ -116,17 +115,11 @@ const MyPlaylist = ({
 
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
-    // borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    // marginLeft: 0,
     width: "auto",
-    // [theme.breakpoints.up("sm")]: {
-    //   marginLeft: theme.spacing(1),
-    //   width: "auto",
-    // },
   }));
 
   const SearchIconWrapper = styled("div")(({ theme }) => ({
