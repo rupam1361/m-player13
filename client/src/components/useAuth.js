@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const url = "/";
+const url = "https://young-reef-94653.herokuapp.com";
 
 export default function useAuth(code) {
   const [accessToken, setAccessToken] = useState("");
