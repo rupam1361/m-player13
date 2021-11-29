@@ -28,7 +28,10 @@
     "slick-carousel": "^1.8.1",
     "spotify-web-api-node": "^5.0.2",
     "uuid": "^8.3.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.36",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14"
   },
   "scripts": {
     "start": "craco start",
