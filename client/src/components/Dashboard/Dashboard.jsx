@@ -127,73 +127,73 @@ const Dashboard = ({ code }) => {
     getMyPlaylists();
     getMySavedTracks();
 
-    window.onSpotifyWebPlaybackSDKReady = () => {
-      const player = new window.Spotify.Player({
-        name: "Carly Rae Jepsen Player",
-        getOAuthToken: (callback) => {
-          callback(accessToken);
-        },
-        volume: 0.5,
-      });
+    // window.onSpotifyWebPlaybackSDKReady = () => {
+    //   const player = new window.Spotify.Player({
+    //     name: "Carly Rae Jepsen Player",
+    //     getOAuthToken: (callback) => {
+    //       callback(accessToken);
+    //     },
+    //     volume: 0.5,
+    //   });
 
-      const playTrack = () => {
-        console.log("lol");
+    //   const playTrack = () => {
+    //     console.log("lol");
 
-        player.connect().then((success) => {
-          if (success) {
-            console.log(
-              "The Web Playback SDK successfully connected to Spotify!"
-            );
-          }
-        });
+    //     player.connect().then((success) => {
+    //       if (success) {
+    //         console.log(
+    //           "The Web Playback SDK successfully connected to Spotify!"
+    //         );
+    //       }
+    //     });
 
-        player.addListener("ready", async ({ device_id }) => {
-          const spotify_uri = "spotify:track:7xGfFoTpQ2E7fRF5lN10tr";
-          console.log("Connected with Device ID", device_id);
+    //     player.addListener("ready", async ({ device_id }) => {
+    //       const spotify_uri = "spotify:track:7xGfFoTpQ2E7fRF5lN10tr";
+    //       console.log("Connected with Device ID", device_id);
 
-          const response = await fetch(
-            `https://api.spotify.com/v1/me/player/play?device_id=${device_id}`,
-            {
-              method: "PUT",
-              body: JSON.stringify({ uris: [spotify_uri] }),
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${accessToken}`,
-              },
-            }
-          );
+    //       const response = await fetch(
+    //         `https://api.spotify.com/v1/me/player/play?device_id=${device_id}`,
+    //         {
+    //           method: "PUT",
+    //           body: JSON.stringify({ uris: [spotify_uri] }),
+    //           headers: {
+    //             "Content-Type": "application/json",
+    //             Authorization: `Bearer ${accessToken}`,
+    //           },
+    //         }
+    //       );
 
-          const data = await response.text();
-          console.log(data ? JSON.parse(data) : response);
-        });
-      };
+    //       const data = await response.text();
+    //       console.log(data ? JSON.parse(data) : response);
+    //     });
+    //   };
 
-      // const button = document.createElement("button");
-      // button.innerHTML = "Play";
-      // button.addEventListener("click", playTrack);
-      // document.getElementById("root").append(button);
+    //   const button = document.createElement("button");
+    //   button.innerHTML = "Play";
+    //   button.addEventListener("click", playTrack);
+    //   document.getElementById("root").append(button);
 
-      // const play = ({
-      //   spotify_uri,
-      //   playerInstance: {
-      //     _options: { getOAuthToken },
-      //   },
-      // }) => {
-      //   getOAuthToken((access_token) => {
-      // fetch(
-      //   `https://api.spotify.com/v1/me/player/play?device_id=${device_id}`,
-      //   {
-      //     method: "PUT",
-      //     body: JSON.stringify({ uris: [spotify_uri] }),
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       Authorization: `Bearer ${access_token}`,
-      //     },
-      //   }
-      // );
-      //   });
-      // };
-    };
+    //   const play = ({
+    //     spotify_uri,
+    //     playerInstance: {
+    //       _options: { getOAuthToken },
+    //     },
+    //   }) => {
+    //     getOAuthToken((access_token) => {
+    //   fetch(
+    //     `https://api.spotify.com/v1/me/player/play?device_id=${device_id}`,
+    //     {
+    //       method: "PUT",
+    //       body: JSON.stringify({ uris: [spotify_uri] }),
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         Authorization: `Bearer ${access_token}`,
+    //       },
+    //     }
+    //   );
+    //     });
+    //   };
+    // };
   }, [accessToken]);
 
   const searchTracks = (searchterm) => {
