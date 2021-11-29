@@ -822,7 +822,7 @@ const Dashboard = ({ code }) => {
           sx={
             chooseTrack
               ? {
-                  paddingBottom: { lg: 4, md: 4, sm: 16, xs: 16 },
+                  paddingBottom: { lg: 12, md: 12, sm: 22, xs: 22 },
                 }
               : {
                   paddingBottom: 0,
