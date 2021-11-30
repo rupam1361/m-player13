@@ -409,6 +409,7 @@ const Header = (
                     <ArrowBackIcon fontSize="small" />
                   </Search>
                   <StyledInputBaseMobile
+                    type="text"
                     autoFocus
                     placeholder="Search for songs and artists.."
                     inputProps={{ "aria-label": "search" }}
