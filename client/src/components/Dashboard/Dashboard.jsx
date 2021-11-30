@@ -819,10 +819,10 @@ const Dashboard = ({ code }) => {
           sx={{
             display: { lg: "flex", md: "block", sm: "block", xs: "block" },
           }}
-          sx={
+          style={
             chooseTrack
               ? {
-                  paddingBottom: { lg: 14, md: 14, sm: 22, xs: 22 },
+                  paddingBottom: 130,
                 }
               : {
                   paddingBottom: 0,
