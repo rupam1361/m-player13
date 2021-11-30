@@ -182,9 +182,6 @@ const AlbumTracks = ({
                                     )}
                                   </div>
                                   <div
-                                    style={{
-                                      fontSize: 12,
-                                    }}
                                     className={`text-${
                                       audio.track.id === currentSongPlayingId
                                         ? "blue"

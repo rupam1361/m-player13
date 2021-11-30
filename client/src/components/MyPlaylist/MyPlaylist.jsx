@@ -453,6 +453,9 @@ const MyPlaylist = ({
                                     <div
                                       style={{
                                         fontSize: 12,
+                                        display: "flex",
+                                        position: "relative",
+                                        justifyContent: "space-between",
                                       }}
                                       className={`text-${
                                         audio.track.id === currentSongPlayingId
