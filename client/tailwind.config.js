@@ -7,6 +7,8 @@ module.exports = {
       "text-gray-600",
       "text-blue-400",
       "text-gray-400",
+      "text-blue-700",
+      "text-gray-700",
     ],
   },
   darkMode: false, // or 'media' or 'class'
