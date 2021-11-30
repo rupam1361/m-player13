@@ -9,6 +9,8 @@ module.exports = {
       "text-gray-400",
       "text-blue-700",
       "text-gray-700",
+      "text-blue-900",
+      "text-gray-900",
     ],
   },
   darkMode: false, // or 'media' or 'class'
