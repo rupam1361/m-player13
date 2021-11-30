@@ -461,29 +461,22 @@ const MyPlaylist = ({
                                       }-700`}
                                     >
                                       {msToTime(audio.track.duration_ms)}
+                                      {audio.track.id ===
+                                      currentSongPlayingId ? (
+                                        floatingPlayerPlay ? (
+                                          <span id="bars">
+                                            <span className="bar"></span>
+                                            <span className="bar"></span>
+                                            <span className="bar"></span>
+                                            <span className="bar"></span>
+                                            <span className="bar"></span>
+                                            <span className="bar"></span>
+                                            <span className="bar"></span>
+                                          </span>
+                                        ) : null
+                                      ) : null}
                                     </div>
                                   </div>
-                                  {/* <div
-                                    style={{
-                                      position: "absolute",
-                                      right: 100,
-                                      top: 12,
-                                    }}
-                                  >
-                                    {audio.track.id === currentSongPlayingId ? (
-                                      floatingPlayerPlay ? (
-                                        <span id="bars">
-                                          <span className="bar"></span>
-                                          <span className="bar"></span>
-                                          <span className="bar"></span>
-                                          <span className="bar"></span>
-                                          <span className="bar"></span>
-                                          <span className="bar"></span>
-                                          <span className="bar"></span>
-                                        </span>
-                                      ) : null
-                                    ) : null}
-                                  </div> */}
 
                                   <div
                                     style={{
