@@ -1,6 +1,14 @@
 module.exports = {
   // purge: [],
-  purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+  purge: {
+    content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+    safelist: [
+      "text-blue-600",
+      "text-gray-600",
+      "text-blue-400",
+      "text-gray-400",
+    ],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
