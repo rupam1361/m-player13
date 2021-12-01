@@ -520,7 +520,7 @@ const Dashboard = ({ code }) => {
     if (!accessToken) return;
     setIsLoading(true);
     // setShowArtistDetails(true);
-    spotifyApi.getArtistTopTracks(artistId, "IN").then(
+    spotifyApi.getArtistTopTracks(artistId, "US").then(
       function (data) {
         // console.log(data.body);
         setArtistTopTracks(data.body);
