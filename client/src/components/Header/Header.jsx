@@ -502,12 +502,21 @@ const Header = (
                       <MenuIcon />
                     </IconButton>
                   ) : null}
+
+                  <MusicNoteOutlinedIcon
+                    sx={{
+                      fontSize: 24,
+                      display: "block",
+                      margin: "0 auto",
+                      color: "rgb(120, 120, 120)",
+                    }}
+                  />
                   <Typography
                     noWrap
                     component="div"
                     sx={{ flexGrow: 1, display: "block", fontSize: 18 }}
                   >
-                    Music
+                    mPlayer
                   </Typography>
 
                   <Search
