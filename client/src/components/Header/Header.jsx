@@ -342,7 +342,7 @@ const Header = (
                   }}
                 /> */}
               </div>
-              <Search style={{ position: "relative" }}>
+              {/* <Search style={{ position: "relative" }}>
                 <SearchIconWrapper>
                   <SearchIcon color="primary" />
                 </SearchIconWrapper>
@@ -369,7 +369,17 @@ const Header = (
                     </IconButton>
                   </span>
                 ) : null}
-              </Search>
+              </Search> */}
+              <input
+                className="focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10"
+                type="text"
+                aria-label="Filter projects"
+                placeholder="Search for songs and artists"
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                }}
+              />
               <div className=" md:flex items-center">
                 <img
                   class="w-10 h-10 rounded-full"
@@ -408,6 +418,24 @@ const Header = (
                   >
                     <ArrowBackIcon fontSize="small" />
                   </Search>
+                  <input
+                    className="focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10"
+                    type="text"
+                    aria-label="Filter projects"
+                    placeholder="Search for songs and artists"
+                    value={searchTerm}
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value);
+                    }}
+                  />
+                  {/* <Search
+                    onClick={() => {
+                      setShowStyledInputBaseMobile(false);
+                      setSearchTerm("");
+                    }}
+                  >
+                    <ArrowBackIcon fontSize="small" />
+                  </Search>
                   <StyledInputBaseMobile
                     type="text"
                     autoFocus
@@ -432,7 +460,7 @@ const Header = (
                         <ClearIcon fontSize="small" />
                       </IconButton>
                     </span>
-                  ) : null}
+                  ) : null} */}
                 </div>
               ) : (
                 <div
