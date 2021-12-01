@@ -318,21 +318,6 @@ const Header = (
               }}
             >
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <Typography
-                  noWrap
-                  component="div"
-                  sx={{ flexGrow: 1, display: "block", fontSize: 18 }}
-                >
-                  Music
-                </Typography>
-                {/* <MusicNoteOutlinedIcon
-                  sx={{
-                    fontSize: 24,
-                    display: "block",
-                    margin: "0 auto",
-                    color: "rgb(120, 120, 120)",
-                  }}
-                />
                 <MusicNoteOutlinedIcon
                   sx={{
                     fontSize: 24,
@@ -340,7 +325,14 @@ const Header = (
                     margin: "0 auto",
                     color: "rgb(120, 120, 120)",
                   }}
-                /> */}
+                />
+                <Typography
+                  noWrap
+                  component="div"
+                  sx={{ flexGrow: 1, display: "block", fontSize: 18 }}
+                >
+                  mPlayer
+                </Typography>
               </div>
               {/* <Search style={{ position: "relative" }}>
                 <SearchIconWrapper>
@@ -370,16 +362,29 @@ const Header = (
                   </span>
                 ) : null}
               </Search> */}
-              <input
-                className="focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10"
-                type="text"
-                aria-label="Filter projects"
-                placeholder="Search for songs and artists"
-                value={searchTerm}
-                onChange={(e) => {
-                  setSearchTerm(e.target.value);
-                }}
-              />
+              <div style={{ position: "relative" }}>
+                <SearchIconWrapper>
+                  <SearchIcon color="primary" />
+                </SearchIconWrapper>
+                <input
+                  className="focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-12"
+                  type="text"
+                  placeholder="Search for songs and artists"
+                  value={searchTerm}
+                  style={{ width: 400, fontSize: 15 }}
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                  }}
+                />
+                {searchTerm ? (
+                  <span style={{ position: "absolute", right: 4, top: 4 }}>
+                    <IconButton onClick={() => setSearchTerm("")} size="small">
+                      <ClearIcon fontSize="small" />
+                    </IconButton>
+                  </span>
+                ) : null}
+              </div>
+
               <div className=" md:flex items-center">
                 <img
                   class="w-10 h-10 rounded-full"
@@ -404,7 +409,6 @@ const Header = (
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: "space-between",
                     alignItems: "center",
                     position: "relative",
                     width: "100%",
@@ -418,16 +422,31 @@ const Header = (
                   >
                     <ArrowBackIcon fontSize="small" />
                   </Search>
-                  <input
-                    className="focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10"
-                    type="text"
-                    aria-label="Filter projects"
-                    placeholder="Search for songs and artists"
-                    value={searchTerm}
-                    onChange={(e) => {
-                      setSearchTerm(e.target.value);
-                    }}
-                  />
+                  <div style={{ position: "relative", width: "100%" }}>
+                    <input
+                      className=" focus:outline-none text-black placeholder-gray-500  rounded-md py-2 pl-4"
+                      type="text"
+                      placeholder="Search for songs and artists"
+                      value={searchTerm}
+                      style={{
+                        fontSize: 15,
+                        width: "100%",
+                      }}
+                      onChange={(e) => {
+                        setSearchTerm(e.target.value);
+                      }}
+                    />
+                    {searchTerm ? (
+                      <span style={{ position: "absolute", right: 4, top: 4 }}>
+                        <IconButton
+                          onClick={() => setSearchTerm("")}
+                          size="small"
+                        >
+                          <ClearIcon fontSize="small" />
+                        </IconButton>
+                      </span>
+                    ) : null}
+                  </div>
                   {/* <Search
                     onClick={() => {
                       setShowStyledInputBaseMobile(false);

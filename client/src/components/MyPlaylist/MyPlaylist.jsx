@@ -302,7 +302,7 @@ const MyPlaylist = ({
               >
                 {myPlaylistTitle.name}
               </span>{" "}
-              {myPlaylistTitle.tracks.total > 0 ? (
+              {myPlaylist.tracks && myPlaylistTitle.tracks.total > 0 ? (
                 <span>
                   ({myPlaylistTitle.tracks.total}{" "}
                   {myPlaylistTitle.tracks.total > 1 ? "tracks" : "track"})

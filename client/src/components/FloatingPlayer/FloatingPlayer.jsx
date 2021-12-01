@@ -31,12 +31,14 @@ const FloatingPlayer = ({
   albumTracks,
 }) => {
   if (!accessToken) return null;
-  let obj =
-    albumTracks.items && albumTracks.items.length > 0
-      ? albumTracks.items.findIndex((item) => item.track.id === chooseTrack.id)
-      : albumTracks.findIndex((item) => item.id === chooseTrack.id);
-
   console.log(albumTracks);
+
+  let obj =
+    albumTracks.items && albumTracks.items.length >= 0
+      ? albumTracks.items.findIndex((item) => item.track.id === chooseTrack.id)
+      : albumTracks &&
+        albumTracks.findIndex((item) => item.id === chooseTrack.id);
+
   console.log(obj);
 
   const disableNextButton =
@@ -215,7 +217,8 @@ const FloatingPlayer = ({
                     }}
                     color="inherit"
                     disabled={
-                      obj >= albumTracks.items.length - 1 ||
+                      (albumTracks.items &&
+                        obj >= albumTracks.items.length - 1) ||
                       disableNextButton === false
                         ? true
                         : false

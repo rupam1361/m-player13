@@ -124,7 +124,6 @@ const Dashboard = ({ code }) => {
     getMyRecentPlayedSongs();
     getMyTopArtists();
     getMyTopTracks();
-    getMyPlaylists();
     getMySavedTracks();
 
     // window.onSpotifyWebPlaybackSDKReady = () => {
@@ -597,9 +596,12 @@ const Dashboard = ({ code }) => {
         console.log(response.data.items);
         setMyPlaylist(response.data.items);
         spotifyApi.getPlaylistTracks(response.data.items[0].id).then((data) => {
-          setAlbumTracks(data.body);
-          setMyPlaylistTitle(response.data.items[0]);
-          console.log(data.body.items);
+          console.log(data);
+          if (data) {
+            setAlbumTracks(data.body);
+            setMyPlaylistTitle(response.data.items[0]);
+            console.log(data.body.items);
+          }
         });
       });
   };
