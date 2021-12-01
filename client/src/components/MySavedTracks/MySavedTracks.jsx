@@ -54,7 +54,7 @@ const style = {
   bgcolor: "background.paper",
   borderRadius: 2,
   boxShadow: 24,
-  p: 4,
+  p: 3,
 };
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -442,40 +442,32 @@ const MySavedTracks = ({
             </IconButton>
           </div>
 
-          <div style={{ marginTop: 20 }}>
-            <Search style={{ position: "relative" }}>
-              <SearchIconWrapper>
-                <SearchIcon color="primary" />
-              </SearchIconWrapper>
-              <StyledInputBase
-                autoFocus
-                placeholder="Search for tracks to add.."
-                inputProps={{ "aria-label": "search" }}
-                value={createPlaylistSearchTerm}
-                onChange={(e) => {
-                  setCreatePlaylistSearchTerm(e.target.value);
-                }}
-                style={{
-                  borderWidth: 1,
-                  borderColor: "rgb(220, 220, 220)",
-                  marginRight: 30,
-                  borderRadius: 10,
-                  fontSize: 14,
-                  width: "100%",
-                }}
-              />
-              {createPlaylistSearchTerm ? (
-                <span style={{ position: "absolute", right: 6, top: 4 }}>
-                  <IconButton
-                    onClick={() => setCreatePlaylistSearchTerm("")}
-                    size="small"
-                  >
-                    <ClearIcon fontSize="small" />
-                  </IconButton>
-                </span>
-              ) : null}
-            </Search>
+          <div style={{ position: "relative", marginTop: 20 }}>
+            <SearchIconWrapper>
+              <SearchIcon color="primary" />
+            </SearchIconWrapper>
+            <input
+              className="focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-12"
+              type="text"
+              placeholder="Search for tracks to add.."
+              style={{ width: "100%", fontSize: 15 }}
+              value={createPlaylistSearchTerm}
+              onChange={(e) => {
+                setCreatePlaylistSearchTerm(e.target.value);
+              }}
+            />
+            {createPlaylistSearchTerm ? (
+              <span style={{ position: "absolute", right: 4, top: 4 }}>
+                <IconButton
+                  onClick={() => setCreatePlaylistSearchTerm("")}
+                  size="small"
+                >
+                  <ClearIcon fontSize="small" />
+                </IconButton>
+              </span>
+            ) : null}
           </div>
+
           {createPlaylistSearchData.length > 0 ? (
             <div style={{ marginTop: 20 }}>
               <Typography
