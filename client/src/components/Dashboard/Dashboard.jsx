@@ -824,7 +824,7 @@ const Dashboard = ({ code }) => {
           style={
             chooseTrack
               ? {
-                  paddingBottom: 130,
+                  paddingBottom: 140,
                 }
               : {
                   paddingBottom: 0,
