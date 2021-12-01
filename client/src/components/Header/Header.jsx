@@ -496,7 +496,6 @@ const Header = (
                       edge="start"
                       color="inherit"
                       aria-label="open drawer"
-                      sx={{ mr: 2 }}
                       onClick={handleDrawerToggle}
                     >
                       <MenuIcon />
