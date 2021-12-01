@@ -424,6 +424,7 @@ const Header = (
                   </Search>
                   <div style={{ position: "relative", width: "100%" }}>
                     <input
+                      autoFocus
                       className=" focus:outline-none text-black placeholder-gray-500  rounded-md py-2 pl-4"
                       type="text"
                       placeholder="Search for songs and artists"
