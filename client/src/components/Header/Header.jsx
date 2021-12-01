@@ -504,7 +504,7 @@ const Header = (
 
                   <MusicNoteOutlinedIcon
                     sx={{
-                      fontSize: 24,
+                      fontSize: 22,
                       display: "block",
                       margin: "0 auto",
                       color: "rgb(120, 120, 120)",
@@ -513,7 +513,7 @@ const Header = (
                   <Typography
                     noWrap
                     component="div"
-                    sx={{ flexGrow: 1, display: "block", fontSize: 18 }}
+                    sx={{ flexGrow: 1, display: "block", fontSize: 17 }}
                   >
                     mPlayer
                   </Typography>
