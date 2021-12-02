@@ -385,14 +385,14 @@ const Header = (
                 ) : null}
               </div>
 
-              <div className=" md:flex items-center">
+              {/* <div className=" md:flex items-center">
                 <img
                   class="w-10 h-10 rounded-full"
                   style={{ borderRadius: 10 }}
                   src={currentUser.images[0].url}
                   alt=""
                 />
-              </div>
+              </div> */}
             </Box>
             <Box
               sx={{
@@ -528,14 +528,14 @@ const Header = (
                       </SearchIconWrapperMobile>
                     </IconButton>
                   </Search>
-                  <div className=" md:flex items-center">
+                  {/* <div className=" md:flex items-center">
                     <img
                       class="w-10 h-10 rounded-full"
                       style={{ borderRadius: 10 }}
                       src={currentUser.images[0].url}
                       alt=""
                     />
-                  </div>
+                  </div> */}
                 </div>
               )}
             </Box>
