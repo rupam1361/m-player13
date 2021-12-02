@@ -178,7 +178,7 @@ const Header = (
             padding: "20px 100px 20px 20px",
           }}
         >
-          <div
+          {/* <div
             style={{
               padding: 6,
               border: "1px solid rgb(200, 200, 200)",
@@ -191,9 +191,9 @@ const Header = (
               src={currentUser.images[0].url}
               alt=""
             />
-          </div>
+          </div> */}
         </div>
-        <div style={{ padding: "0 20px 20px 20px" }}>
+        {/* <div style={{ padding: "0 20px 20px 20px" }}>
           <Typography
             style={{
               fontSize: 14,
@@ -206,7 +206,7 @@ const Header = (
           <Typography style={{ marginTop: 6, fontSize: 13 }}>
             {currentUser.email}
           </Typography>
-        </div>
+        </div> */}
         <Divider />
         <List>
           {allCategories.map((category, index) => (
