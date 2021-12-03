@@ -178,7 +178,8 @@ const Header = (
             padding: "20px 100px 20px 20px",
           }}
         >
-          {/* <div
+          {console.log(currentUser)}
+          <div
             style={{
               padding: 6,
               border: "1px solid rgb(200, 200, 200)",
@@ -188,25 +189,35 @@ const Header = (
             <img
               class=" rounded-full"
               style={{ borderRadius: 10 }}
-              src={currentUser.images[0].url}
+              src={
+                currentUser.images.length > 0
+                  ? currentUser.images[0].url
+                  : noImage
+              }
               alt=""
             />
-          </div> */}
+          </div>
         </div>
-        {/* <div style={{ padding: "0 20px 20px 20px" }}>
-          <Typography
-            style={{
-              fontSize: 14,
-              textTransform: "uppercase",
-              letterSpacing: 2,
-            }}
-          >
-            {currentUser.display_name}
-          </Typography>
-          <Typography style={{ marginTop: 6, fontSize: 13 }}>
-            {currentUser.email}
-          </Typography>
-        </div> */}
+        <div style={{ padding: "0 20px 20px 20px" }}>
+          {currentUser.display_name ? (
+            <Typography
+              style={{
+                fontSize: 14,
+                textTransform: "uppercase",
+                letterSpacing: 2,
+              }}
+            >
+              {currentUser.display_name}
+            </Typography>
+          ) : (
+            ""
+          )}
+          {currentUser.email ? (
+            <Typography style={{ marginTop: 6, fontSize: 13 }}>
+              {currentUser.email}
+            </Typography>
+          ) : null}
+        </div>
         <Divider />
         <List>
           {allCategories.map((category, index) => (
@@ -528,14 +539,18 @@ const Header = (
                       </SearchIconWrapperMobile>
                     </IconButton>
                   </Search>
-                  {/* <div className=" md:flex items-center">
+                  <div className=" md:flex items-center">
                     <img
                       class="w-10 h-10 rounded-full"
                       style={{ borderRadius: 10 }}
-                      src={currentUser.images[0].url}
+                      src={
+                        currentUser.images.length > 0
+                          ? currentUser.images[0].url
+                          : noImage
+                      }
                       alt=""
                     />
-                  </div> */}
+                  </div>
                 </div>
               )}
             </Box>

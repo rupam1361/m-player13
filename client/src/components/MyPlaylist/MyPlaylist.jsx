@@ -281,243 +281,275 @@ const MyPlaylist = ({
       </div>
       {console.log(myPlaylistTitle)}
 
-      {!isLoading ? (
-        <div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-            className="mb-4 mt-4"
-          >
-            <div className="text-gray-500 text-sm ">
-              <span
-                style={{
-                  textTransform: "uppercase",
-                  fontSize: 13.6,
-                  letterSpacing: 1,
-                  color: "black",
-                }}
-              >
-                {myPlaylistTitle.name}
-              </span>{" "}
-              {myPlaylist.tracks && myPlaylistTitle.tracks.total > 0 ? (
-                <span>
-                  ({myPlaylistTitle.tracks.total}{" "}
-                  {myPlaylistTitle.tracks.total > 1 ? "tracks" : "track"})
-                </span>
-              ) : null}
+      {myPlaylist.length > 0 ? (
+        !isLoading ? (
+          <div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+              className="mb-4 mt-4"
+            >
+              <div className="text-gray-500 text-sm ">
+                <span
+                  style={{
+                    textTransform: "uppercase",
+                    fontSize: 13.6,
+                    letterSpacing: 1,
+                    color: "black",
+                  }}
+                >
+                  {myPlaylistTitle.name}
+                </span>{" "}
+                {myPlaylist.tracks && myPlaylistTitle.tracks.total > 0 ? (
+                  <span>
+                    ({myPlaylistTitle.tracks.total}{" "}
+                    {myPlaylistTitle.tracks.total > 1 ? "tracks" : "track"})
+                  </span>
+                ) : null}
+              </div>
+              {console.log(myPlaylist)}
+
+              <Tooltip placement="top" title="Add Tracks">
+                <Fab
+                  color="inherit"
+                  aria-label="add"
+                  size="small"
+                  style={{ marginRight: 8 }}
+                  onClick={setSelectTracksOpen}
+                >
+                  <AddIcon />
+                </Fab>
+              </Tooltip>
             </div>
 
-            <Tooltip placement="top" title="Add Tracks">
-              <Fab
-                color="inherit"
-                aria-label="add"
-                size="small"
-                style={{ marginRight: 8 }}
-                onClick={setSelectTracksOpen}
-              >
-                <AddIcon />
-              </Fab>
-            </Tooltip>
-          </div>
-
-          <div className="flex flex-col mt-4 mb-2">
-            <div>
+            <div className="flex flex-col mt-4 mb-2">
               <div>
-                <div className=" align-middle ">
-                  <div>
-                    <ul role="list">
-                      {/* {console.log(albumTracks)} */}
-                      {albumTracks.items && albumTracks.items.length === 0 ? (
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            fontSize: 14,
-                            margin: "80px 0",
-                          }}
-                        >
-                          No Tracks in this Playlist
-                        </div>
-                      ) : (
-                        <div>
-                          {albumTracks.items?.map((audio) => (
-                            <div
-                              style={{
-                                display: "block",
-                                margin: "0 auto",
-                                width: "100%",
-                              }}
-                              key={audio.track.id}
-                            >
-                              <li
-                                style={{ alignItems: "center" }}
-                                className="py-1 flex border border-gray-200 rounded-md overflow-hidden"
+                <div>
+                  <div className=" align-middle ">
+                    <div>
+                      <ul role="list">
+                        {/* {console.log(albumTracks)} */}
+                        {albumTracks.items && albumTracks.items.length === 0 ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              fontSize: 14,
+                              margin: "80px 0",
+                            }}
+                          >
+                            No Tracks in this Playlist
+                          </div>
+                        ) : (
+                          <div>
+                            {albumTracks.items?.map((audio) => (
+                              <div
+                                style={{
+                                  display: "block",
+                                  margin: "0 auto",
+                                  width: "100%",
+                                }}
+                                key={audio.track.id}
                               >
-                                <div
-                                  // onClick={() => selectAlbum(audio.track.track.id)}
-                                  style={{ cursor: "pointer" }}
-                                  className="ml-1 flex-shrink-0 w-16 h-16 border border-gray-200 rounded-md overflow-hidden"
+                                <li
+                                  style={{ alignItems: "center" }}
+                                  className="py-1 flex border border-gray-200 rounded-md overflow-hidden"
                                 >
-                                  {audio.track.album.images[0] !== undefined ? (
-                                    <img
-                                      src={audio.track.album.images[0].url}
-                                      // alt={album.id ? album.images[0].url : noImage}
-                                      className="w-full h-full object-center object-cover"
-                                    />
-                                  ) : (
-                                    <img
-                                      src={noImage}
-                                      // alt={album.id ? album.images[0].url : noImage}
-                                      className="w-full h-full object-center object-cover"
-                                    />
-                                  )}
-                                </div>
-
-                                <div
-                                  className="ml-3 flex-1 flex flex-col mr-2"
-                                  style={{ position: "relative" }}
-                                >
-                                  <div>
-                                    <div
-                                      className={`flex justify-between text-${
-                                        audio.track.id === currentSongPlayingId
-                                          ? "blue"
-                                          : "gray"
-                                      }-600`}
-                                    >
-                                      <Typography style={{ fontSize: 13 }}>
-                                        {audio.track.name
-                                          ? truncateMobile(audio.track.name)
-                                          : "No name"}
-                                      </Typography>
-                                    </div>
-
-                                    <div
-                                      className={`mt-1 mb-1 flex items-center  text-${
-                                        audio.track.id === currentSongPlayingId
-                                          ? "blue"
-                                          : "gray"
-                                      }-400`}
-                                    >
-                                      {audio.track.artists.length < 2 ? (
-                                        <span
-                                          style={{ fontSize: 12 }}
-                                          color={
-                                            audio.track.id ===
-                                            currentSongPlayingId
-                                              ? "blue"
-                                              : ""
-                                          }
-                                        >
-                                          {audio.track.artists[0].name
-                                            ? audio.track.artists[0].name
-                                            : "No artist name"}
-                                        </span>
-                                      ) : (
-                                        <>
-                                          <span style={{ fontSize: 12 }}>
-                                            {audio.track.artists
-                                              .filter(
-                                                (artist, index) => index < 3
-                                              )
-                                              .map((artist, index) =>
-                                                index >= 2 ? null : (
-                                                  <span
-                                                    key={artist.id}
-                                                    style={
-                                                      index === 1
-                                                        ? {
-                                                            fontSize: 12,
-                                                            marginLeft: 4,
-                                                          }
-                                                        : { fontSize: 12 }
-                                                    }
-                                                  >
-                                                    {index === 1
-                                                      ? truncateArtistNameMobile(
-                                                          artist.name
-                                                        )
-                                                      : artist.name}
-
-                                                    {index !== 1 ? "," : ""}
-                                                  </span>
-                                                )
-                                              )}
-                                          </span>
-                                        </>
-                                      )}
-                                    </div>
-                                    <div
-                                      style={{
-                                        fontSize: 12,
-                                        display: "flex",
-                                        position: "relative",
-                                        justifyContent: "space-between",
-                                      }}
-                                      className={`text-${
-                                        audio.track.id === currentSongPlayingId
-                                          ? "blue"
-                                          : "gray"
-                                      }-700`}
-                                    >
-                                      {msToTime(audio.track.duration_ms)}
-                                      {audio.track.id ===
-                                      currentSongPlayingId ? (
-                                        floatingPlayerPlay ? (
-                                          <span id="bars">
-                                            <span className="bar"></span>
-                                            <span className="bar"></span>
-                                            <span className="bar"></span>
-                                            <span className="bar"></span>
-                                            <span className="bar"></span>
-                                            <span className="bar"></span>
-                                            <span className="bar"></span>
-                                          </span>
-                                        ) : null
-                                      ) : null}
-                                    </div>
+                                  <div
+                                    // onClick={() => selectAlbum(audio.track.track.id)}
+                                    style={{ cursor: "pointer" }}
+                                    className="ml-1 flex-shrink-0 w-16 h-16 border border-gray-200 rounded-md overflow-hidden"
+                                  >
+                                    {audio.track.album.images[0] !==
+                                    undefined ? (
+                                      <img
+                                        src={audio.track.album.images[0].url}
+                                        // alt={album.id ? album.images[0].url : noImage}
+                                        className="w-full h-full object-center object-cover"
+                                      />
+                                    ) : (
+                                      <img
+                                        src={noImage}
+                                        // alt={album.id ? album.images[0].url : noImage}
+                                        className="w-full h-full object-center object-cover"
+                                      />
+                                    )}
                                   </div>
 
                                   <div
-                                    style={{
-                                      position: "absolute",
-                                      right: 6,
-                                      top: 14,
-                                      display: "flex",
-                                      alignItems: "center",
-                                    }}
+                                    className="ml-3 flex-1 flex flex-col mr-2"
+                                    style={{ position: "relative" }}
                                   >
                                     <div>
-                                      {audio.track.id ===
-                                      currentSongPlayingId ? (
-                                        floatingPlayerPlay ? (
-                                          <Tooltip
-                                            placement="top"
-                                            title="Pause"
+                                      <div
+                                        className={`flex justify-between text-${
+                                          audio.track.id ===
+                                          currentSongPlayingId
+                                            ? "blue"
+                                            : "gray"
+                                        }-600`}
+                                      >
+                                        <Typography style={{ fontSize: 13 }}>
+                                          {audio.track.name
+                                            ? truncateMobile(audio.track.name)
+                                            : "No name"}
+                                        </Typography>
+                                      </div>
+
+                                      <div
+                                        className={`mt-1 mb-1 flex items-center  text-${
+                                          audio.track.id ===
+                                          currentSongPlayingId
+                                            ? "blue"
+                                            : "gray"
+                                        }-400`}
+                                      >
+                                        {audio.track.artists.length < 2 ? (
+                                          <span
+                                            style={{ fontSize: 12 }}
+                                            color={
+                                              audio.track.id ===
+                                              currentSongPlayingId
+                                                ? "blue"
+                                                : ""
+                                            }
                                           >
-                                            <IconButton
-                                              size="small"
-                                              style={{
-                                                backgroundColor:
-                                                  "rgb(240, 240, 240)",
-                                              }}
-                                              color={
-                                                audio.track.id ===
-                                                currentSongPlayingId
-                                                  ? "primary"
-                                                  : "inherit"
-                                              }
-                                              onClick={() => {
-                                                console.log("Pause");
-                                                setFloatingPlayerPlay(false);
-                                              }}
+                                            {audio.track.artists[0].name
+                                              ? audio.track.artists[0].name
+                                              : "No artist name"}
+                                          </span>
+                                        ) : (
+                                          <>
+                                            <span style={{ fontSize: 12 }}>
+                                              {audio.track.artists
+                                                .filter(
+                                                  (artist, index) => index < 3
+                                                )
+                                                .map((artist, index) =>
+                                                  index >= 2 ? null : (
+                                                    <span
+                                                      key={artist.id}
+                                                      style={
+                                                        index === 1
+                                                          ? {
+                                                              fontSize: 12,
+                                                              marginLeft: 4,
+                                                            }
+                                                          : { fontSize: 12 }
+                                                      }
+                                                    >
+                                                      {index === 1
+                                                        ? truncateArtistNameMobile(
+                                                            artist.name
+                                                          )
+                                                        : artist.name}
+
+                                                      {index !== 1 ? "," : ""}
+                                                    </span>
+                                                  )
+                                                )}
+                                            </span>
+                                          </>
+                                        )}
+                                      </div>
+                                      <div
+                                        style={{
+                                          fontSize: 12,
+                                          display: "flex",
+                                          position: "relative",
+                                          justifyContent: "space-between",
+                                        }}
+                                        className={`text-${
+                                          audio.track.id ===
+                                          currentSongPlayingId
+                                            ? "blue"
+                                            : "gray"
+                                        }-700`}
+                                      >
+                                        {msToTime(audio.track.duration_ms)}
+                                        {audio.track.id ===
+                                        currentSongPlayingId ? (
+                                          floatingPlayerPlay ? (
+                                            <span id="bars">
+                                              <span className="bar"></span>
+                                              <span className="bar"></span>
+                                              <span className="bar"></span>
+                                              <span className="bar"></span>
+                                              <span className="bar"></span>
+                                              <span className="bar"></span>
+                                              <span className="bar"></span>
+                                            </span>
+                                          ) : null
+                                        ) : null}
+                                      </div>
+                                    </div>
+
+                                    <div
+                                      style={{
+                                        position: "absolute",
+                                        right: 6,
+                                        top: 14,
+                                        display: "flex",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <div>
+                                        {audio.track.id ===
+                                        currentSongPlayingId ? (
+                                          floatingPlayerPlay ? (
+                                            <Tooltip
+                                              placement="top"
+                                              title="Pause"
                                             >
-                                              <PauseIcon />
-                                            </IconButton>
-                                          </Tooltip>
+                                              <IconButton
+                                                size="small"
+                                                style={{
+                                                  backgroundColor:
+                                                    "rgb(240, 240, 240)",
+                                                }}
+                                                color={
+                                                  audio.track.id ===
+                                                  currentSongPlayingId
+                                                    ? "primary"
+                                                    : "inherit"
+                                                }
+                                                onClick={() => {
+                                                  console.log("Pause");
+                                                  setFloatingPlayerPlay(false);
+                                                }}
+                                              >
+                                                <PauseIcon />
+                                              </IconButton>
+                                            </Tooltip>
+                                          ) : (
+                                            <Tooltip
+                                              placement="top"
+                                              title="Play"
+                                            >
+                                              <IconButton
+                                                size="small"
+                                                style={{
+                                                  backgroundColor:
+                                                    "rgb(240, 240, 240)",
+                                                }}
+                                                color={
+                                                  audio.track.id ===
+                                                  currentSongPlayingId
+                                                    ? "primary"
+                                                    : "inherit"
+                                                }
+                                                onClick={() => {
+                                                  console.log("Play");
+                                                  setFloatingPlayerPlay(true);
+                                                }}
+                                              >
+                                                <PlayArrowIcon />
+                                              </IconButton>
+                                            </Tooltip>
+                                          )
                                         ) : (
                                           <Tooltip placement="top" title="Play">
                                             <IconButton
@@ -533,91 +565,86 @@ const MyPlaylist = ({
                                                   : "inherit"
                                               }
                                               onClick={() => {
-                                                console.log("Play");
-                                                setFloatingPlayerPlay(true);
+                                                setChooseTrack(audio.track);
+                                                setCurrentSongPlayingId(
+                                                  audio.track.id
+                                                );
+                                                setPlayButtonPressedCount(
+                                                  (playButtonPressedCount += 1)
+                                                );
                                               }}
                                             >
                                               <PlayArrowIcon />
                                             </IconButton>
                                           </Tooltip>
-                                        )
-                                      ) : (
-                                        <Tooltip placement="top" title="Play">
-                                          <IconButton
-                                            size="small"
-                                            style={{
-                                              backgroundColor:
-                                                "rgb(240, 240, 240)",
-                                            }}
+                                        )}
+                                      </div>
+                                      <div
+                                        style={{
+                                          marginLeft: 14,
+                                          cursor: "pointer",
+                                        }}
+                                        onClick={() =>
+                                          removeTracksFromMyPlaylist(
+                                            myPlaylistTitle.id,
+                                            audio.track.uri
+                                          )
+                                        }
+                                      >
+                                        <Tooltip placement="top" title="Remove">
+                                          <RemoveCircleOutlineIcon
                                             color={
                                               audio.track.id ===
                                               currentSongPlayingId
                                                 ? "primary"
-                                                : "inherit"
+                                                : "action"
                                             }
-                                            onClick={() => {
-                                              setChooseTrack(audio.track);
-                                              setCurrentSongPlayingId(
-                                                audio.track.id
-                                              );
-                                              setPlayButtonPressedCount(
-                                                (playButtonPressedCount += 1)
-                                              );
-                                            }}
-                                          >
-                                            <PlayArrowIcon />
-                                          </IconButton>
+                                          />
                                         </Tooltip>
-                                      )}
-                                    </div>
-                                    <div
-                                      style={{
-                                        marginLeft: 14,
-                                        cursor: "pointer",
-                                      }}
-                                      onClick={() =>
-                                        removeTracksFromMyPlaylist(
-                                          myPlaylistTitle.id,
-                                          audio.track.uri
-                                        )
-                                      }
-                                    >
-                                      <Tooltip placement="top" title="Remove">
-                                        <RemoveCircleOutlineIcon
-                                          color={
-                                            audio.track.id ===
-                                            currentSongPlayingId
-                                              ? "primary"
-                                              : "action"
-                                          }
-                                        />
-                                      </Tooltip>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              </li>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </ul>
+                                </li>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 140,
+              marginBottom: 140,
+            }}
+          >
+            <CircularProgress size={28} />
+          </div>
+        )
       ) : (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: 140,
-            marginBottom: 140,
-          }}
-        >
-          <CircularProgress size={28} />
+        <div>
+          <div>
+            <ul>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  fontSize: 14,
+                  margin: "80px 0",
+                }}
+              >
+                You have no Playlists
+              </div>
+            </ul>
+          </div>
         </div>
       )}
 

@@ -257,7 +257,9 @@ const Dashboard = ({ code }) => {
       setShowNewReleasesCategory(false);
       setShowSavedTracks(false);
       setShowMyPlaylists(false);
-      getArtist(myTopArtists[0].id);
+      if (myTopArtists.length > 0) {
+        getArtist(myTopArtists[0].id);
+      }
       getArtistRelatedArtists(artistDetails.id);
       setCategorySublist([]);
       setSearchTerm("");
@@ -492,9 +494,12 @@ const Dashboard = ({ code }) => {
     if (!accessToken) return;
     spotifyApi.getMyTopArtists({ limit: 32 }).then(
       function (data) {
-        let topArtists = data.body.items;
-        setMyTopArtists(topArtists);
-        setArtistDetails(topArtists[0]);
+        console.log(data);
+        if (data.body.items.length > 0) {
+          let topArtists = data.body.items;
+          setMyTopArtists(topArtists);
+          setArtistDetails(topArtists[0]);
+        }
       },
       function (err) {
         console.log("Something went wrong!", err);
@@ -594,15 +599,19 @@ const Dashboard = ({ code }) => {
       })
       .then((response) => {
         console.log(response.data.items);
-        setMyPlaylist(response.data.items);
-        spotifyApi.getPlaylistTracks(response.data.items[0].id).then((data) => {
-          console.log(data);
-          if (data) {
-            setAlbumTracks(data.body);
-            setMyPlaylistTitle(response.data.items[0]);
-            console.log(data.body.items);
-          }
-        });
+        if (response.data.items.length > 0) {
+          setMyPlaylist(response.data.items);
+          spotifyApi
+            .getPlaylistTracks(response.data.items[0].id)
+            .then((data) => {
+              console.log(data);
+              if (data) {
+                setAlbumTracks(data.body);
+                setMyPlaylistTitle(response.data.items[0]);
+                console.log(data.body.items);
+              }
+            });
+        }
       });
   };
 
