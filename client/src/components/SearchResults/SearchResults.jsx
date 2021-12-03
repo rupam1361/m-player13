@@ -717,9 +717,7 @@ const SearchResults = ({
                             ) : (
                               <img
                                 src={noImage}
-                                alt={
-                                  playlist.id ? playlist.images[0].url : noImage
-                                }
+                                alt={noImage}
                                 className="w-full h-full object-center object-cover"
                               />
                             )}
