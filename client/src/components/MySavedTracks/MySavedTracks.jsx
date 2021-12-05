@@ -378,7 +378,7 @@ const MySavedTracks = ({
                         }-400`}
                         style={{ fontSize: 12 }}
                       >
-                        {savedTrack.track.album.artists[0].name}
+                        {savedTrack.track.artists[0].name}
                       </p>
                     </div>
 

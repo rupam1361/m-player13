@@ -456,7 +456,7 @@ const Dashboard = ({ code }) => {
       })
       .then(
         function (data) {
-          // console.log("get categories", data.body);
+          console.log("get categories", data.body);
 
           setMusicCategories(data.body.categories.items);
         },
@@ -470,7 +470,7 @@ const Dashboard = ({ code }) => {
     if (!accessToken) return;
     spotifyApi
       .getMyRecentlyPlayedTracks({
-        limit: 7,
+        limit: 20,
       })
       .then(
         function (data) {
@@ -512,7 +512,7 @@ const Dashboard = ({ code }) => {
     spotifyApi.getMyTopTracks({ limit: 30, offset: 1 }).then(
       function (data) {
         let topTracks = data.body.items;
-        // console.log(topTracks);
+        console.log(topTracks);
         setMyTopTracks(topTracks);
       },
       function (err) {

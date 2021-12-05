@@ -195,7 +195,11 @@ const MyTopTracks = ({
                       className={`flex justify-between text-${
                         track.id === currentSongPlayingId ? "blue" : "gray"
                       }-600`}
-                      style={{ fontSize: 13, alignItems: "center" }}
+                      style={{
+                        fontSize: 13,
+                        alignItems: "center",
+                        textTransform: "capitalize",
+                      }}
                     >
                       <p>{`${truncate(track.name)}`}</p>
                     </div>
@@ -207,7 +211,7 @@ const MyTopTracks = ({
                         }-400`}
                         style={{ fontSize: 12 }}
                       >
-                        {track.album.artists[0].name}
+                        {track.artists[0].name}
                       </p>
                     </div>
 

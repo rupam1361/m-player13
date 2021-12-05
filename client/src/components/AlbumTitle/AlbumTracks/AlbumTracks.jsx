@@ -42,18 +42,6 @@ const AlbumTracks = ({
     window.scrollTo(0, 0);
   }, []);
 
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
   return albumTracks ? (
     <div>
       {albumTracks.length !== 0 ? (
@@ -195,6 +183,7 @@ const AlbumTracks = ({
                                     }}
                                   >
                                     {msToTime(audio.track.duration_ms)}
+                                    {console.log(audio)}
                                     {audio.track.id === currentSongPlayingId ? (
                                       floatingPlayerPlay ? (
                                         <span id="bars">

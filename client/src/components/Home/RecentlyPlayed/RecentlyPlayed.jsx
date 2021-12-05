@@ -73,14 +73,14 @@ const RecentlyPlayed = ({
               letterSpacing: 2,
             }}
           >
-            RECENTLY PLAYED ({recentlyPlayedSongs.length})
+            RECENTLY PLAYED ({recentlyPlayedSongs.slice(0, 8).length})
           </p>
         </div>
         <div>
           <div className=" align-middle">
             <ul role="list" style={{ width: recentSongsWidth }}>
               {recentlyPlayedSongs &&
-                filteredRecentlyPlayedSongs?.map((audio) => (
+                filteredRecentlyPlayedSongs.slice(0, 8)?.map((audio) => (
                   <div className="w-full " key={audio.track.id}>
                     <li className="py-3 flex  rounded-md overflow-hidden">
                       <div className="ml-3">

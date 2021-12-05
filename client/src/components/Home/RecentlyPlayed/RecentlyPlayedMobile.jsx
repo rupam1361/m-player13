@@ -48,7 +48,7 @@ const RecentlyPlayedMobile = ({
               letterSpacing: 2,
             }}
           >
-            RECENTLY PLAYED ({recentlyPlayedSongs.length})
+            RECENTLY PLAYED ({recentlyPlayedSongs.slice(0, 20).length})
           </p>
           <div style={{ display: "flex", alignItems: "center" }}>
             <IconButton onClick={() => scroll(-360)}>
@@ -70,7 +70,7 @@ const RecentlyPlayedMobile = ({
           className="sidebar"
         >
           {recentlyPlayedSongs &&
-            filteredRecentlyPlayedSongs?.map((song, index) => (
+            filteredRecentlyPlayedSongs.slice(0, 20)?.map((song, index) => (
               <div key={index}>
                 <div
                   variant="outlined"
@@ -249,7 +249,7 @@ const RecentlyPlayedMobile = ({
                             }-400`}
                             style={{ fontSize: 13.4 }}
                           >
-                            {song.track.album.artists[0].name}
+                            {song.track.artists[0].name}
                           </p>
                         </div>
 
