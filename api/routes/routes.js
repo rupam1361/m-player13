@@ -42,17 +42,16 @@ router.post("/refresh", (req, res) => {
     refreshToken,
   });
 
+  console.log(refreshToken);
+
   spotifyApi
     .refreshAccessToken()
-    .then(() => {
-      (data) => {
-        console.log(data);
-        res.json({
-          accessToken: data.body.access_token,
-          expiresIn: data.body.expires_in,
-        });
-        // spotifyApi.setAccessToken(data.body["access_token"]);
-      };
+    .then((data) => {
+      console.log(data);
+      res.status(200).json({
+        accessToken: data.body.access_token,
+        expiresIn: data.body.expires_in,
+      });
     })
     .catch((err) => console.log(err));
 });

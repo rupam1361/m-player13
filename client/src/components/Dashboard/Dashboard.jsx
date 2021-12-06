@@ -95,6 +95,7 @@ const Dashboard = ({ code }) => {
 
   useEffect(() => {
     if (!accessToken) return;
+    console.log(accessToken);
     spotifyApi.setAccessToken(accessToken);
     setCategory("Home");
   }, [accessToken]);

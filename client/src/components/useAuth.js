@@ -25,6 +25,7 @@ export default function useAuth(code) {
         console.log(err.message);
       });
   }, [code]);
+  console.log(expiresIn);
   useEffect(() => {
     if (!accessToken || !expiresIn) return;
     const interval = setInterval(() => {
