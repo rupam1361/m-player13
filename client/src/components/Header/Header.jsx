@@ -396,14 +396,18 @@ const Header = (
                 ) : null}
               </div>
 
-              {/* <div className=" md:flex items-center">
+              <div className=" md:flex items-center">
                 <img
                   class="w-10 h-10 rounded-full"
                   style={{ borderRadius: 10 }}
-                  src={currentUser.images[0].url}
+                  src={
+                    currentUser.images.length > 0
+                      ? currentUser.images[0].url
+                      : noImage
+                  }
                   alt=""
                 />
-              </div> */}
+              </div>
             </Box>
             <Box
               sx={{

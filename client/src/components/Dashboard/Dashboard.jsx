@@ -492,7 +492,7 @@ const Dashboard = ({ code }) => {
 
   const getMyTopArtists = () => {
     if (!accessToken) return;
-    spotifyApi.getMyTopArtists({ limit: 32 }).then(
+    spotifyApi.getMyTopArtists({ limit: 32, offset: 1 }).then(
       function (data) {
         console.log(data);
         if (data.body.items.length > 0) {
