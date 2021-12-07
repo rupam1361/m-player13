@@ -93,7 +93,7 @@ const MyPlaylist = ({
     artistLi.current.scrollLeft += scrollOffset;
   };
 
-  console.log(myPlaylistTitle);
+  console.log(floatingPlayerPlay);
 
   const onImageSelect = (e) => {
     if (e.target.files[0]) {
@@ -486,7 +486,7 @@ const MyPlaylist = ({
                                         ) : null}
                                       </div>
                                     </div>
-
+                                    {console.log(audio)}
                                     <div
                                       style={{
                                         position: "absolute",

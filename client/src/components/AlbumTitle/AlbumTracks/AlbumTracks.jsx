@@ -41,6 +41,7 @@ const AlbumTracks = ({
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  console.log(floatingPlayerPlay);
 
   return albumTracks ? (
     <div>
@@ -113,7 +114,6 @@ const AlbumTracks = ({
                                         : "No name"}
                                     </Typography>
                                   </div>
-
                                   <div
                                     className={`mt-1 mb-1 flex items-center  text-${
                                       audio.track.id === currentSongPlayingId
@@ -183,7 +183,7 @@ const AlbumTracks = ({
                                     }}
                                   >
                                     {msToTime(audio.track.duration_ms)}
-                                    {console.log(audio)}
+
                                     {audio.track.id === currentSongPlayingId ? (
                                       floatingPlayerPlay ? (
                                         <span id="bars">
@@ -199,7 +199,7 @@ const AlbumTracks = ({
                                     ) : null}
                                   </div>
                                 </div>
-
+                                lol
                                 <div
                                   style={{
                                     position: "absolute",

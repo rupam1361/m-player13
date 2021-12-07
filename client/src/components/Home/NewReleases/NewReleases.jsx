@@ -36,7 +36,7 @@ const NewReleases = ({
   const scroll = (scrollOffset) => {
     newReleasesLi.current.scrollLeft += scrollOffset;
   };
-  console.log(albumTracks);
+  console.log(floatingPlayerPlay);
   return (
     <div>
       <div
