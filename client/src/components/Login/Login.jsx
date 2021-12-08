@@ -59,23 +59,32 @@ const Login = () => {
         >
           <a href={AUTH_URL}>Login with Spotify</a>
         </Button>
-        <div style={{ display: "flex" }}>
-          <ThumbUpAltIcon />
-          <ThumbUpAltIcon />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginTop: 26,
+            textAlign: "center",
+          }}
+        >
+          <div>
+            <ThumbUpAltIcon />
+            <ThumbUpAltIcon />
+          </div>
           <div
-            className="text-gray-500"
+            className="text-gray-900"
             style={{
-              textAlign: "center",
               fontSize: 15,
               textTransform: "uppercase",
               letterSpacing: 1,
-              marginTop: 26,
             }}
           >
             Thanks to Spotify..
           </div>
-          <ThumbUpAltIcon />
-          <ThumbUpAltIcon />
+          <div>
+            <ThumbUpAltIcon />
+            <ThumbUpAltIcon />
+          </div>
         </div>
       </div>
     </div>
