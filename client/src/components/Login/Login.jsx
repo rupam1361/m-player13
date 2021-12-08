@@ -64,7 +64,7 @@ const Login = () => {
             display: "flex",
             justifyContent: "space-around",
             alignItems: "center",
-            marginTop: 26,
+            marginTop: 60,
             textAlign: "center",
           }}
         >
