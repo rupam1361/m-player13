@@ -59,7 +59,7 @@ const MyTopArtists = ({
         className="sidebar"
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "flex-start",
           marginLeft: 12,
           overflowX: "scroll",
         }}
