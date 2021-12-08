@@ -61,7 +61,7 @@ const Login = () => {
         <div
           className="text-gray-500"
           style={{
-            margin: 20,
+            textAlign: "center",
             fontSize: 14,
             textTransform: "uppercase",
             letterSpacing: 1,
