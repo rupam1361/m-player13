@@ -51,7 +51,7 @@ const MyCategories = ({
         ref={musicLi}
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "flex-start",
 
           overflowX: "scroll",
         }}

@@ -56,7 +56,7 @@ const RelatedArtists = ({
         className="sidebar"
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "flex-start",
 
           overflowX: "scroll",
         }}
