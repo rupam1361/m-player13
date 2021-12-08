@@ -65,6 +65,7 @@ const Login = () => {
             fontSize: 14,
             textTransform: "uppercase",
             letterSpacing: 1,
+            marginTop: 26,
           }}
         >
           Thanks to Spotify..
