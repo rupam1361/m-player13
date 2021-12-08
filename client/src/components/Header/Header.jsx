@@ -130,40 +130,6 @@ const Header = (
     justifyContent: "center",
   }));
 
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "100%",
-      [theme.breakpoints.up("sm")]: {
-        width: "40ch",
-        // "&:focus": {
-        //   width: "32ch",
-        // },
-      },
-    },
-  }));
-
-  const StyledInputBaseMobile = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(1)})`,
-      transition: theme.transitions.create("width"),
-
-      [theme.breakpoints.up("sm")]: {
-        width: "100%",
-        // "&:focus": {
-        //   width: "32ch",
-        // },
-      },
-    },
-  }));
-
   useEffect(() => {
     if (searchTerm !== "") {
       setShowStyledInputBaseMobile(true);
@@ -298,7 +264,7 @@ const Header = (
               />
             </ListItem>
           ))}
-          <div style={{ marginTop: 20, fontSize: 14 }}>
+          <div style={{ margin: 20, marginTop: 40, fontSize: 14 }}>
             <span style={{ fontWeight: "bold" }}> NOTE: </span> In order to play
             songs, you need to have a premium Spotify Account..
           </div>
