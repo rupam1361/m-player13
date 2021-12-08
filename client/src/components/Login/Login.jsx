@@ -68,10 +68,7 @@ const Login = () => {
             textAlign: "center",
           }}
         >
-          <div>
-            <ThumbUpAltIcon />
-            <ThumbUpAltIcon />
-          </div>
+          <ThumbUpAltIcon />
           <div
             className="text-gray-900"
             style={{
@@ -82,10 +79,7 @@ const Login = () => {
           >
             Thanks to Spotify..
           </div>
-          <div>
-            <ThumbUpAltIcon />
-            <ThumbUpAltIcon />
-          </div>
+          <ThumbUpAltIcon />
         </div>
       </div>
     </div>
