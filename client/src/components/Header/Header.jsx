@@ -264,7 +264,10 @@ const Header = (
               />
             </ListItem>
           ))}
-          <div style={{ margin: 20, marginTop: 40, fontSize: 14 }}>
+          <div
+            className="text-gray-500"
+            style={{ margin: 20, marginTop: 50, fontSize: 14 }}
+          >
             <span style={{ fontWeight: "bold" }}> NOTE: </span> In order to play
             songs, you need to have a premium Spotify Account..
           </div>
