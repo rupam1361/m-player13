@@ -36,7 +36,7 @@ const NewReleases = ({
   const scroll = (scrollOffset) => {
     newReleasesLi.current.scrollLeft += scrollOffset;
   };
-  console.log(floatingPlayerPlay);
+  console.log(newReleases);
   return (
     <div>
       <div
