@@ -436,76 +436,94 @@ const SearchResults = ({
                   <ClearIcon fontSize="small" />
                 </IconButton>
               </div>
-
-              <Grid
-                container
-                spacing={2}
-                // columns={{ xs: 4, sm: 8, md: 12 }}
-                style={{ marginTop: 10, height: 400, overflowY: "scroll" }}
-              >
-                {myPlaylist?.map((playlist, index) => (
-                  <Grid
-                    item
-                    xs={6}
-                    sm={6}
-                    md={6}
-                    lg={6}
-                    xl={6}
-                    key={playlist.id}
-                  >
-                    <Item
-                      variant="outlined"
-                      style={{ cursor: "pointer", position: "relative" }}
-                      className="cardHover"
-                      onClick={() => {
-                        setSelectPlaylist(playlist);
-                        setSelectedTrack(selectCurrentTrack);
-                      }}
+              {myPlaylist.length > 0 ? (
+                <Grid
+                  container
+                  spacing={2}
+                  // columns={{ xs: 4, sm: 8, md: 12 }}
+                  style={{ marginTop: 10, height: 400, overflowY: "scroll" }}
+                >
+                  {myPlaylist?.map((playlist, index) => (
+                    <Grid
+                      item
+                      xs={6}
+                      sm={6}
+                      md={6}
+                      lg={6}
+                      xl={6}
+                      key={playlist.id}
                     >
-                      <li
-                        key={playlist.id}
-                        style={{
-                          marginRight: 10,
-
-                          listStyleType: "none",
+                      <Item
+                        variant="outlined"
+                        style={{ cursor: "pointer", position: "relative" }}
+                        className="cardHover"
+                        onClick={() => {
+                          setSelectPlaylist(playlist);
+                          setSelectedTrack(selectCurrentTrack);
                         }}
-                        className="py-1 flex-shrink-0 w-28 rounded-md overflow-hidden"
                       >
-                        <div className=" mr-1 mb-2 flex-shrink-0 h-28 align-center rounded-md overflow-hidden">
-                          {playlist.images[0] !== undefined ? (
-                            <img
-                              src={playlist.images[0].url}
-                              // alt={album.id ? album.images[0].url : noImage}
-                              className="w-full h-full object-center object-cover"
-                            />
-                          ) : (
-                            <img
-                              src={noImage}
-                              alt={noImage}
-                              className="w-full h-full object-center object-cover"
-                            />
-                          )}
-                        </div>
-                      </li>
-                      <div style={{ fontSize: 13 }} className="mt-1">
-                        <div
+                        <li
+                          key={playlist.id}
                           style={{
-                            textTransform: "uppercase",
-                            fontSize: 13,
-                          }}
-                        >
-                          {playlist.name}
-                        </div>
+                            marginRight: 10,
 
-                        {/* <span>
+                            listStyleType: "none",
+                          }}
+                          className="py-1 flex-shrink-0 w-28 rounded-md overflow-hidden"
+                        >
+                          <div className=" mr-1 mb-2 flex-shrink-0 h-28 align-center rounded-md overflow-hidden">
+                            {playlist.images[0] !== undefined ? (
+                              <img
+                                src={playlist.images[0].url}
+                                // alt={album.id ? album.images[0].url : noImage}
+                                className="w-full h-full object-center object-cover"
+                              />
+                            ) : (
+                              <img
+                                src={noImage}
+                                alt={noImage}
+                                className="w-full h-full object-center object-cover"
+                              />
+                            )}
+                          </div>
+                        </li>
+                        <div style={{ fontSize: 13 }} className="mt-1">
+                          <div
+                            style={{
+                              textTransform: "uppercase",
+                              fontSize: 13,
+                            }}
+                          >
+                            {playlist.name}
+                          </div>
+
+                          {/* <span>
                         {playlist.tracks.total}{" "}
                         {playlist.tracks.total > 1 ? "tracks" : "track"}
                       </span> */}
-                      </div>
-                    </Item>
-                  </Grid>
-                ))}
-              </Grid>
+                        </div>
+                      </Item>
+                    </Grid>
+                  ))}
+                </Grid>
+              ) : (
+                <div
+                  style={{
+                    margin: "100px 0",
+                    fontSize: 14,
+                    textAlign: "center",
+                  }}
+                >
+                  <div style={{ textTransform: "uppercase", letterSpacing: 1 }}>
+                    No Playlists found...
+                  </div>
+
+                  <div style={{ fontSize: 14, marginTop: 10 }}>
+                    Create one and come back..
+                  </div>
+                </div>
+              )}
+
               <div
                 style={{
                   marginTop: 20,
