@@ -59,6 +59,17 @@ const Login = () => {
           <a href={AUTH_URL}>Login with Spotify</a>
         </Button>
       </div>
+      <div
+        className="text-gray-500"
+        style={{
+          margin: 20,
+          fontSize: 14,
+          textTransform: "uppercase",
+          letterSpacing: 1,
+        }}
+      >
+        Thanks to Spotify..
+      </div>
     </div>
   );
 };
