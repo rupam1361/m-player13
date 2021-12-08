@@ -298,11 +298,11 @@ const Header = (
               />
             </ListItem>
           ))}
+          <div style={{ marginTop: 20, fontSize: 14 }}>
+            <span style={{ fontWeight: "bold" }}> NOTE: </span> In order to play
+            songs, you need to have a premium Spotify Account..
+          </div>
         </List>
-        <div style={{ marginTop: 20, fontSize: 14 }}>
-          <span style={{ fontWeight: "bold" }}> NOTE: </span> In order to play
-          songs, you need to have a premium Spotify Account..
-        </div>
       </div>
     ) : null;
 
