@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Typography } from "@mui/material";
 import MusicNoteOutlinedIcon from "@mui/icons-material/MusicNoteOutlined";
+import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -58,17 +59,23 @@ const Login = () => {
         >
           <a href={AUTH_URL}>Login with Spotify</a>
         </Button>
-        <div
-          className="text-gray-500"
-          style={{
-            textAlign: "center",
-            fontSize: 14,
-            textTransform: "uppercase",
-            letterSpacing: 1,
-            marginTop: 26,
-          }}
-        >
-          Thanks to Spotify..
+        <div style={{ display: "flex" }}>
+          <ThumbUpAltIcon />
+          <ThumbUpAltIcon />
+          <div
+            className="text-gray-500"
+            style={{
+              textAlign: "center",
+              fontSize: 15,
+              textTransform: "uppercase",
+              letterSpacing: 1,
+              marginTop: 26,
+            }}
+          >
+            Thanks to Spotify..
+          </div>
+          <ThumbUpAltIcon />
+          <ThumbUpAltIcon />
         </div>
       </div>
     </div>
