@@ -199,7 +199,6 @@ const AlbumTracks = ({
                                     ) : null}
                                   </div>
                                 </div>
-                                lol
                                 <div
                                   style={{
                                     position: "absolute",
