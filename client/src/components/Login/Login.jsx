@@ -72,7 +72,7 @@ const Login = () => {
           <div
             className="text-gray-900"
             style={{
-              fontSize: 15,
+              fontSize: 18,
               textTransform: "uppercase",
               letterSpacing: 1,
             }}
