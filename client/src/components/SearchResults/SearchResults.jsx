@@ -96,7 +96,7 @@ const SearchResults = ({
     setSelectPlaylistOpen(false);
   };
 
-  console.log(myPlaylist);
+  console.log(selectPlaylist);
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
@@ -455,7 +455,12 @@ const SearchResults = ({
                     >
                       <Item
                         variant="outlined"
-                        style={{ cursor: "pointer", position: "relative" }}
+                        // style={{ cursor: "pointer", position: "relative",  }}
+                        style={
+                          selectPlaylist.id === playlist.id
+                            ? { backgroundColor: "rgb(230, 230, 230)" }
+                            : null
+                        }
                         className="cardHover"
                         onClick={() => {
                           setSelectPlaylist(playlist);
@@ -576,3 +581,4 @@ const SearchResults = ({
 };
 
 export default SearchResults;
+
