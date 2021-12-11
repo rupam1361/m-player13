@@ -139,7 +139,7 @@ const FloatingPlayer = ({
                         )
                   ) {
                     next();
-                    setFloatingPlayerPlay(true);
+                    // setFloatingPlayerPlay(true);
                   }
                 }
               } else {
