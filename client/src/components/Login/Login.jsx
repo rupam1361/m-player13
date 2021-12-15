@@ -6,11 +6,11 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const SPOTIFY_CLIENT_ID = "8c278abff1454cee8821faaa5f55f753";
-const SPOTIFY_CLIENT_SECRET = "2c08edac92d848558ae56e022e10f155";
+const SPOTIFY_CLIENT_ID = "******†***";
+const SPOTIFY_CLIENT_SECRET = "*******†********";
 const SPOTIFY_REDIRECT_URI = "http://localhost:3000";
 
-const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=8c278abff1454cee8821faaa5f55f753&response_type=code&redirect_uri=https://m-player13.herokuapp.com&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state%20user-read-recently-played%20user-top-read%20playlist-modify-private%20playlist-modify-public%20ugc-image-upload`;
+const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${SPOTIFY_CLIENT_SECRET}&response_type=code&redirect_uri=https://m-player13.herokuapp.com&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state%20user-read-recently-played%20user-top-read%20playlist-modify-private%20playlist-modify-public%20ugc-image-upload`;
 
 const Login = () => {
   return (
