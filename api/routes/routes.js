@@ -11,8 +11,8 @@ router.post("/login", (req, res) => {
   const spotifyApi = new SpotifyWebApi({
     redirectUri: "https://m-player13.herokuapp.com",
     // redirectUri: "http://localhost:3000",
-    clientId: "8c278abff1454cee8821faaa5f55f753",
-    clientSecret: "2c08edac92d848558ae56e022e10f155",
+    clientId: "*************",
+    clientSecret: "*************",
   });
 
   spotifyApi
@@ -37,8 +37,8 @@ router.post("/refresh", (req, res) => {
   const spotifyApi = new SpotifyWebApi({
     redirectUri: "https://m-player13.herokuapp.com",
     // redirectUri: "http://localhost:3000",
-    clientId: "8c278abff1454cee8821faaa5f55f753",
-    clientSecret: "2c08edac92d848558ae56e022e10f155",
+    clientId: "*************",
+    clientSecret: "**************",
     refreshToken,
   });
 
